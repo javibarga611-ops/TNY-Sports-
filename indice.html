@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TNY SPORTS - TRANSMISIÓN Y PROGRAMACIÓN</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background-color: #0a192f; color: #fff; padding-top: 480px; }
+
+        /* HEADER FIJO */
+        header { background-color: #051129; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; left: 0; width: 100%; z-index: 100; box-shadow: 0 2px 10px rgba(0,229,255,0.2); }
+        .tny-logo { font-size: 28px; font-weight: bold; color: #00e5ff; }
+        .tny-logo span { font-size: 14px; color: #fff; display: block; }
+        .datetime { font-size: 18px; color: #00e5ff; text-align: right; }
+
+        /* VIDEO FIJO SUPERIOR */
+        .video-container { background-color: #000; border-radius: 0 0 15px 15px; overflow: hidden; position: fixed; top: 70px; left: 5%; width: 90%; height: 400px; z-index: 99; }
+        .program-info { position: absolute; bottom: 10px; left: 10px; background-color: rgba(0,0,0,0.8); border: 2px solid #00e5ff; border-radius: 8px; padding: 8px; z-index: 10; }
+        .program-name { font-size: 16px; font-weight: bold; color: #00e5ff; }
+        .program-text { font-size: 12px; color: #aaa; }
+        .video-embed { width: 100%; height: 100%; border: none; }
+
+        /* SECCIONES DESPLAZABLES */
+        .social-section, .schedule-section { max-width: 90%; margin: 20px auto; padding: 15px; background-color: #051129; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,229,255,0.3); }
+        .section-title { font-size: 20px; font-weight: bold; color: #00e5ff; margin-bottom: 15px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .social-item { font-size: 16px; margin: 8px 0; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .social-item i { color: #00e5ff; font-size: 20px; }
+        .social-item a { color: #fff; text-decoration: none; }
+        .social-item a:hover { color: #00e5ff; }
+
+        .schedule-subtitle { font-size: 18px; font-weight: bold; margin: 15px 0 8px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .daytime-badge { background-color: #00e5ff; color: #051129; padding: 2px 8px; border-radius: 15px; font-size: 14px; margin-left: 8px; font-weight: normal; }
+        .anime-badge { background-color: #ffcc00; color: #051129; padding: 2px 8px; border-radius: 15px; font-size: 14px; margin-left: 8px; font-weight: normal; }
+        .first-turn { color: #ff9500; }
+        .second-turn { color: #00ff66; }
+        .schedule-list { text-align: center; font-size: 16px; line-height: 24px; }
+        .divider { width: 80%; height: 1px; background-color: #00e5ff; margin: 15px auto; }
+
+        /* PIE DE PÁGINA */
+        .footer { background-color: #051129; padding: 20px; text-align: center; color: #aaa; font-size: 14px; margin-top: 30px; }
+        .footer span { color: #00e5ff; font-weight: bold; }
+        .footer-country { font-size: 16px; color: #fff; margin-top: 5px; }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <div class="tny-logo">
+            TNY
+            <span>SPORTS</span>
+        </div>
+        <div class="datetime" id="datetime">00:00:00 | 00/00/0000</div>
+    </header>
+
+    <!-- VIDEO FIJO SUPERIOR: EL CHAVO DEL 8 -->
+    <div class="video-container">
+        <div class="program-info">
+            <div class="program-name">EL CHAVO DEL 8 - TRANSMISIÓN EN VIVO</div>
+            <div class="program-text">720P HD | POR TNY SPORTS</div>
+        </div>
+        <iframe 
+            class="video-embed"
+            src="https://archive.org/embed/tny-sport-el-chavo-del-8-transmisio-n-hoy-en-vivo-720-p-hd" 
+            frameborder="0" 
+            webkitallowfullscreen="true" 
+            mozallowfullscreen="true" 
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- SECCIÓN REDES SOCIALES -->
+    <section class="social-section">
+        <div class="section-title">
+            <i class="fa fa-share-alt"></i>
+            SINTONÍZANOS EN NUESTRAS REDES
+        </div>
+        <div class="social-item">
+            <i class="fa fa-facebook-square"></i>
+            <a href="#">Facebook /TNY-Sports</a>
+        </div>
+        <div class="social-item">
+            <i class="fa fa-youtube-play"></i>
+            <a href="#">YouTube @TNY-Sports-ARG</a>
+        </div>
+        <div class="social-item">
+            <i class="fa fa-twitter-square"></i>
+            <a href="#">Twitter @TNY_Sports</a>
+        </div>
+    </section>
+
+    <!-- SECCIÓN PROGRAMACIÓN -->
+    <section class="schedule-section">
+        <div class="section-title">
+            <i class="fa fa-calendar"></i>
+            PROGRAMACIÓN COMPLETA
+        </div>
+        
+        <div class="schedule-subtitle">
+            <i class="fa fa-clock-o"></i>
+            HORARIO <span class="daytime-badge">DIURNO</span>
+        </div>
+        <div class="schedule-list">
+            14:00 hs: Yu Gi Oh<br>
+            14:30 hs: Naruto<br>
+            15:30 hs: Los Caballeros del Zodiaco<br>
+            16:00 hs: Pokémon<br>
+            16:30 hs: El Chavo del 8<br>
+            17:15 hs: Dragón Ball Z<br>
+            18:00 hs: Super Campeones
+        </div>
+
+        <div class="divider"></div>
+        
+        <div class="schedule-subtitle">
+            <i class="fa fa-bolt"></i>
+            BLOQUE <span class="anime-badge">ANIME</span>
+        </div>
+        
+        <div class="schedule-subtitle first-turn">
+            <i class="fa fa-play-circle-o"></i>
+            PRIMER TURNO
+        </div>
+        <div class="schedule-list">
+            19:00 hs: My Hero Academia<br>
+            19:30 hs: Ranma ½<br>
+            20:00 hs: Slam Dunk<br>
+            20:30 hs: Yu Yu Hakusho<br>
+            21:00 hs: Dragon Ball Z
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="schedule-subtitle second-turn">
+            <i class="fa fa-play-circle-o"></i>
+            SEGUNDO TURNO
+        </div>
+        <div class="schedule-list">
+            21:30 hs: Detective Conan<br>
+            22:00 hs: BTX<br>
+            22:30 hs: Beyblade XONE<br>
+            23:00 hs: Death Note<br>
+            23:30 hs: Digimon
+        </div>
+    </section>
+
+    <div class="footer">
+        <p>© 2026 <span>TNY SPORTS</span> - TRANSMISIÓN OFICIAL</p>
+        <p class="footer-country">🇦🇷 DE ARGENTINA, PARA EL MUNDO! 🇦🇷</p>
+    </div>
+
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const time = `${hours}:${minutes}:${seconds}`;
+            
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const year = now.getFullYear();
+            const date = `${day}/${month}/${year}`;
+            
+            document.getElementById('datetime').textContent = `${time} | ${date}`;
+        }
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+    </script>
+</body>
+</html>
